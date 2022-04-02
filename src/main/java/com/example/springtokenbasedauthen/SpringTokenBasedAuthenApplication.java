@@ -1,20 +1,21 @@
 package com.example.springtokenbasedauthen;
 
-import com.example.springtokenbasedauthen.entity.Role;
-import com.example.springtokenbasedauthen.entity.User;
 import com.example.springtokenbasedauthen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class SpringTokenBasedAuthenApplication implements CommandLineRunner {
 
-    @Autowired
-    private UserService userService;
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(SpringTokenBasedAuthenApplication.class, args);
