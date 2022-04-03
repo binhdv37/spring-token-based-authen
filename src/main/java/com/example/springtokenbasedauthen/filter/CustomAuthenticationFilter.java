@@ -36,6 +36,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
     // if this attemptAuthen success => successfulAuthentication duoc goi
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+        log.info("Attempt authentication");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         log.info("username is {}", username);

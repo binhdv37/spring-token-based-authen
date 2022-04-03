@@ -40,7 +40,7 @@ import java.util.stream.Stream;
 public class UserController {
     private final UserService userService;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN')")
+//    @PreAuthorize("hasAnyAuthority('ROLE_SUPER_ADMIN')")
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok(userService.getUsers());
